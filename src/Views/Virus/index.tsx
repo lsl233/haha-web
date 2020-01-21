@@ -162,7 +162,7 @@ const Virus: React.FC = () => {
         const pointLayer = new PointLayer({})
             .source(data)
             .shape('circle')
-            .size(15)
+            .size('capacity', [10, 20])
             .color('capacity', [
                 '#34B6B7',
                 '#4AC5AF',
@@ -174,7 +174,7 @@ const Virus: React.FC = () => {
             .active(true)
             .style({
                 opacity: 0.5,
-                strokeWidth: 1
+                strokeWidth: 0
             });
 
         scene.addLayer(pointLayer);
