@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import QRCode from 'qrcode'
 import './style.scss'
 
@@ -17,7 +17,6 @@ const Qrcode: React.FC = () => {
             .catch(err => {
                 console.error(err)
             })
-
     }
 
     return (
