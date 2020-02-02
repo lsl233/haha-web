@@ -52,7 +52,7 @@ const Qrcode: React.FC = () => {
 
         <div className="container">
             <h1 className="title">二维码生成</h1>
-            <p className="subtitle is-5">将输入的<strong>文字</strong>或<strong>链接</strong>转换为二维码</p>
+            <p className="subtitle is-5">将输入的 <strong>文字</strong> 或 <strong>链接</strong> 转换为二维码</p>
 
             <div className="columns">
 
