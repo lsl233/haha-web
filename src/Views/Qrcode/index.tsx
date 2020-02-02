@@ -49,33 +49,32 @@ const Qrcode: React.FC = () => {
     }
 
     return (
-        <section className="section">
-            <div className="container">
-                <h1 className="title">二维码生成</h1>
-                <p className="subtitle is-5">将输入的<strong>文字</strong>或<strong>链接</strong>转换为二维码</p>
 
-                <div className="columns">
+        <div className="container">
+            <h1 className="title">二维码生成</h1>
+            <p className="subtitle is-5">将输入的<strong>文字</strong>或<strong>链接</strong>转换为二维码</p>
 
-                    <div className="control column is-half">
-                        <textarea
-                            style={{ height: '100%' }}
-                            autoFocus
-                            className="textarea"
-                            value={value}
-                            onChange={handleInputChange}
-                            onFocus={handleInputFocus}
-                            placeholder="请输入内容, 例如：http(s)://"
-                        />
-                        <span className="icon is-small is-left">
-                            <i className="fas fa-globe"></i>
-                        </span>
-                    </div>
-                    <figure className="qrcode column is-half">
-                        <img src={imgUrl} alt="qrcode" />
-                    </figure>
+            <div className="columns">
+
+                <div className="control column is-half">
+                    <textarea
+                        style={{ height: '100%' }}
+                        autoFocus
+                        className="textarea"
+                        value={value}
+                        onChange={handleInputChange}
+                        onFocus={handleInputFocus}
+                        placeholder="请输入内容, 例如：http(s)://"
+                    />
+                    <span className="icon is-small is-left">
+                        <i className="fas fa-globe"></i>
+                    </span>
                 </div>
+                <figure className="qrcode column is-half">
+                    <img src={imgUrl} alt="qrcode" />
+                </figure>
             </div>
-        </section>
+        </div>
     )
 }
 
