@@ -1,1 +1,0 @@
-declare var F2: (val: any) => any
