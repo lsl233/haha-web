@@ -9,6 +9,12 @@ const Home: React.FC = () => {
             des: '可以将文本(链接)转换为二维码，方便手机扫描获取',
             image: '/images/qrcode.png',
             url: '/qrcode'
+        },
+        {
+            name: 'JSON 格式化',
+            des: '将输入的 JSON字符串 美化展示',
+            image: '/images/json.png',
+            url: '/json'
         }
     ]
 
