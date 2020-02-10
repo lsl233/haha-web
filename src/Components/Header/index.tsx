@@ -21,6 +21,7 @@ const Header: React.FC = () => {
                     <div className="navbar-start">
                         <Link to="/" className="navbar-item">首页</Link>
                         <Link to="/qrcode" className="navbar-item">二维码生成</Link>
+                        <Link to="/json" className="navbar-item">JSON格式化</Link>
                     </div>
                 </div>
             </nav>
