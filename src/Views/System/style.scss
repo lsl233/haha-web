@@ -1,0 +1,16 @@
+.system {
+    .item {
+        width: 100%;
+        margin: 0;
+        transition: all .2s ease-in-out;
+        &:hover {
+            box-shadow: 0 0 .2em .2em rgba(10, 10, 10, 0.2), 0 0px 0 1px rgba(10, 10, 10, 0.02);
+        }
+        .column:first-child {
+
+            &::after {
+                content: ":";
+            }
+        }
+    }
+}

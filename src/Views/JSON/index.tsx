@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react'
-import { debounce } from '../../utils'
+import React, { useState } from 'react'
+// import { debounce } from '../../utils'
 import hljs from 'highlight.js'
 import 'highlight.js/styles/github.css'
 import './style.scss'
 
 function removeQuotation(str: string) {
-    return str.replace(/(^\")|(\"$)/g, "")
+    return str.replace(/(^")|("$)/g, '')
 }
 
 const JSONView: React.FC = () => {
@@ -24,13 +24,11 @@ const JSONView: React.FC = () => {
         } catch (e) {
             setErrMsg(e.message)
         }
-
     }
 
     function handleInputFocus(e: React.ChangeEvent<HTMLTextAreaElement>) {
         e.target.select()
     }
-
 
     return (
         <div className="container">
