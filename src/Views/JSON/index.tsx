@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 // import { debounce } from '../../utils'
 import hljs from 'highlight.js'
 import 'highlight.js/styles/github.css'
@@ -11,9 +11,13 @@ function removeQuotation(str: string) {
 const JSONView: React.FC = () => {
     const [val, setVal] = useState<string>('')
     const [errMsg, setErrMsg] = useState<string>('')
-    const [html, setHTML] = useState<string>('')
+    const [html, setHTML] = useState<string>('// TODO')
 
-    function handleInputChange(e: React.ChangeEvent<HTMLTextAreaElement>) {
+    useEffect(() => {
+        console.log('useEffect')
+    }, [])
+
+    const handleInputChange = function (e: React.ChangeEvent<HTMLTextAreaElement>) {
         const val = e.target.value
         setVal(val)
         if (!val) return
@@ -25,6 +29,8 @@ const JSONView: React.FC = () => {
             setErrMsg(e.message)
         }
     }
+
+    // const debounceHandleInputChange = debounce(handleInputChange)
 
     function handleInputFocus(e: React.ChangeEvent<HTMLTextAreaElement>) {
         e.target.select()

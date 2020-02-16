@@ -1,11 +1,11 @@
 export function debounce (func: Function, ms: number = 300) {
     let timer: NodeJS.Timeout
-    return function (...args: any[]) {
+    return function <T>(...args: T[]) {
         if (timer) {
             clearTimeout(timer)
         }
-        timer = setTimeout(function () {
-            return func(...args)
+        timer = setTimeout(() => {
+            return func.apply(null, args)
         }, ms)
     }
 }

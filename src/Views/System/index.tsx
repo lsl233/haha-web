@@ -4,12 +4,15 @@ import './style.scss'
 
 const System: React.FC = () => {
     const [browser, setBrowser] = useState<IBrowser>({
-        userAgent: ''
+        userAgent: '',
+        href: ''
     })
 
     useEffect(() => {
+        const { navigator, location } = window
         setBrowser({
-            userAgent: window.navigator.userAgent
+            userAgent: navigator.userAgent,
+            href: location.href
         })
     }, [])
 
@@ -26,13 +29,12 @@ const System: React.FC = () => {
                             {browser.userAgent}
                         </div>
                     </div>
-
                     <div className="columns item">
                         <div className="column is-2 has-text-grey-dark has-text-right has-text-weight-medium">
-                            userAgent
+                            href
                         </div>
                         <div className="column is-10">
-                            {browser.userAgent}
+                            {browser.href}
                         </div>
                     </div>
                 </div>

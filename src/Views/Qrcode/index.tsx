@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import QRCode from 'qrcode'
-import { debounce } from '../../utils'
+// import { debounce } from '../../utils'
 import './style.scss'
 
 function makeQrcodeBase64(
@@ -23,7 +23,7 @@ function makeQrcodeBase64(
     )
 }
 
-const debounceMakeQrcodeBase64 = debounce(makeQrcodeBase64)
+// const debounceMakeQrcodeBase64 = debounce(makeQrcodeBase64)
 
 const Qrcode: React.FC = () => {
     const [value, setValue] = useState<string>('')
@@ -39,7 +39,7 @@ const Qrcode: React.FC = () => {
     function handleInputChange(e: React.ChangeEvent<HTMLTextAreaElement>) {
         const val = e.target.value
         setValue(val)
-        debounceMakeQrcodeBase64(val, {}, (base64: string) => {
+        makeQrcodeBase64(val, {}, (base64: string) => {
             setImgUrl(base64)
         })
     }

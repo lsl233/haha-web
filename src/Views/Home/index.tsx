@@ -15,6 +15,12 @@ const Home: React.FC = () => {
             des: '将输入的 JSON字符串 美化展示',
             image: '/images/json.png',
             url: '/json'
+        },
+        {
+            name: '浏览器信息',
+            des: '浏览器信息&系统信息展示',
+            image: '/images/system.png',
+            url: '/system'
         }
     ]
 
@@ -23,7 +29,7 @@ const Home: React.FC = () => {
             <div className="columns">
                 {
                     apps.map(item => (
-                        <div className="column is-4">
+                        <div className="column is-4" key={item.url}>
                             <div className="card">
                                 <Link to={item.url}>
                                     <div className="card-content">
