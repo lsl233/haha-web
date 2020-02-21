@@ -1,29 +1,30 @@
 import React, { useState, useEffect } from 'react'
 import QRCode from 'qrcode'
-// import { debounce } from '../../utils'
+import { debounce } from '../../utils'
 import './style.scss'
 
-function makeQrcodeBase64(
+const makeQrcodeBase64 = function (
     val: string,
     options: QRCode.QRCodeToDataURLOptions = {},
-    callback: (string: string) => void = () => { }
+    success: (qrcode: string) => void,
+    error?: (error: Error) => void
 ) {
     return QRCode.toDataURL(
         val,
         Object.assign({
             margin: 0
         }, options),
-        (error: Error, base64: string) => {
+        (e, base64) => {
             if (error) {
-                console.error(error)
+                error(e)
             } else {
-                callback(base64)
+                success(base64)
             }
         }
     )
 }
 
-// const debounceMakeQrcodeBase64 = debounce(makeQrcodeBase64)
+const debounceMakeQrcodeBase64 = debounce(makeQrcodeBase64)
 
 const Qrcode: React.FC = () => {
     const [value, setValue] = useState<string>('')
@@ -31,7 +32,7 @@ const Qrcode: React.FC = () => {
 
     useEffect(() => {
         const href = window.location.href
-        makeQrcodeBase64(href, {}, (base64: string) => {
+        makeQrcodeBase64(href, {}, (base64) => {
             setImgUrl(base64)
         })
     }, [])
@@ -39,13 +40,9 @@ const Qrcode: React.FC = () => {
     function handleInputChange(e: React.ChangeEvent<HTMLTextAreaElement>) {
         const val = e.target.value
         setValue(val)
-        makeQrcodeBase64(val, {}, (base64: string) => {
+        debounceMakeQrcodeBase64(val, {}, (base64: string) => {
             setImgUrl(base64)
         })
-    }
-
-    function handleInputFocus(e: React.ChangeEvent<HTMLTextAreaElement>) {
-        e.target.select()
     }
 
     return (
@@ -61,7 +58,6 @@ const Qrcode: React.FC = () => {
                         className="textarea"
                         value={value}
                         onChange={handleInputChange}
-                        onFocus={handleInputFocus}
                         rows={5}
                         placeholder="请输入内容, 例如：http(s)://"
                     />

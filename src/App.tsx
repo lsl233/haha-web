@@ -5,6 +5,7 @@ import Home from './Views/Home'
 import Qrcode from './Views/Qrcode'
 import JSONView from './Views/JSON'
 import System from './Views/System'
+import About from './Views/About'
 
 const App: React.FC = () => {
   return (
@@ -17,6 +18,7 @@ const App: React.FC = () => {
             <Route exact path="/qrcode" component={Qrcode} />
             <Route exact path="/json" component={JSONView} />
             <Route exact path="/system" component={System} />
+            <Route exact path="/about" component={About} />
           </Switch>
         </Router>
       </div>

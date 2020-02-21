@@ -39,7 +39,6 @@ const System: React.FC = () => {
                     </div>
                 </div>
             </article>
-
         </div>
     )
 }

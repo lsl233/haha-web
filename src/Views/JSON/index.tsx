@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-// import { debounce } from '../../utils'
+import { debounce } from '../../utils'
 import hljs from 'highlight.js'
 import 'highlight.js/styles/github.css'
 import './style.scss'
@@ -7,6 +7,19 @@ import './style.scss'
 function removeQuotation(str: string) {
     return str.replace(/(^")|("$)/g, '')
 }
+
+const debounceStr2Code = debounce((
+    val: string,
+    success: (html: string) => void,
+    error: (err: ErrorEvent) => void
+) => {
+    try {
+        const html: string = hljs.highlightAuto(JSON.stringify(JSON.parse(removeQuotation(val)), null, 4)).value
+        success(html)
+    } catch (e) {
+        error(e)
+    }
+})
 
 const JSONView: React.FC = () => {
     const [val, setVal] = useState<string>('')
@@ -20,20 +33,16 @@ const JSONView: React.FC = () => {
     const handleInputChange = function (e: React.ChangeEvent<HTMLTextAreaElement>) {
         const val = e.target.value
         setVal(val)
-        if (!val) return
-        try {
-            const html = hljs.highlightAuto(JSON.stringify(JSON.parse(removeQuotation(val)), null, 4)).value
-            setHTML(html)
-            setErrMsg('')
-        } catch (e) {
-            setErrMsg(e.message)
-        }
-    }
-
-    // const debounceHandleInputChange = debounce(handleInputChange)
-
-    function handleInputFocus(e: React.ChangeEvent<HTMLTextAreaElement>) {
-        e.target.select()
+        debounceStr2Code(
+            val,
+            (html: string) => {
+                setHTML(html)
+                setErrMsg('')
+            },
+            (e: ErrorEvent) => {
+                setErrMsg(e.message)
+            }
+        )
     }
 
     return (
@@ -48,7 +57,6 @@ const JSONView: React.FC = () => {
                         className="textarea"
                         value={val}
                         onChange={handleInputChange}
-                        onFocus={handleInputFocus}
                         rows={10}
                         placeholder="请输入JSON字符串"
                     />
