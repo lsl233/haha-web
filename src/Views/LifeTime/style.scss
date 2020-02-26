@@ -1,0 +1,30 @@
+.life-time {
+    padding: 16px 8px;
+}
+.time-block {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    // margin: 0 auto;
+    & > div {
+        margin: 2.5px;
+        width: 12px;
+        height: 12px;
+        background-color: rgb(235, 237, 240);
+
+        &.cureent {
+            // background-color: #e34c26;
+            animation: flicker 1s infinite linear forwards;
+            animation-direction: alternate;
+        }
+
+        &.history {
+            background-color: rgb(123, 201, 111);
+        }
+    }
+}
+
+@keyframes flicker {
+    0% { background-color: rgb(123, 201, 111); transform: scale(1)}
+    100% { background-color: #e34c26; transform: scale(1.2) }
+}
