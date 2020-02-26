@@ -21,7 +21,7 @@ const System: React.FC = () => {
             <article className="panel is-primary">
                 <p className="panel-heading">浏览器信息</p>
                 <div className="">
-                    <div className="columns item">
+                    <div className="columns is-mobile item">
                         <div className="column is-2 has-text-grey-dark has-text-right has-text-weight-medium">
                             userAgent
                         </div>
@@ -29,7 +29,7 @@ const System: React.FC = () => {
                             {browser.userAgent}
                         </div>
                     </div>
-                    <div className="columns item">
+                    <div className="columns is-mobile item">
                         <div className="column is-2 has-text-grey-dark has-text-right has-text-weight-medium">
                             href
                         </div>
