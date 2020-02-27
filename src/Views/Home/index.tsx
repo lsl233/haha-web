@@ -21,6 +21,12 @@ const Home: React.FC = () => {
             des: '浏览器信息&系统信息展示',
             image: '/images/system.png',
             url: '/system'
+        },
+        {
+            name: '人生时间',
+            des: '仿Github风格展示今年已经过去的时间',
+            image: '/images/system.png',
+            url: '/lifeTime'
         }
     ]
 
