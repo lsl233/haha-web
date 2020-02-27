@@ -17,6 +17,9 @@ class LifeTime {
     getCurrentDayOfYear(): number {
         return this.currentDayOfYear
     }
+    getCurrentYear() {
+        return this.currentYear
+    }
 
     static isCommonYear(year: number) {
         return ((year % 4 === 0) && (year % 100 !== 0)) || (year % 400 === 0)

@@ -2,13 +2,16 @@ import React, { useState, useEffect } from 'react'
 import LifeTime from './LifeTime'
 import './style.scss'
 
-const About: React.FC = () => {
+const LifeTiView: React.FC = () => {
     const [dayOfYear, setDayOfYear] = useState<number>(0)
     const [currentDayOfYear, setCurrentDayOfYear] = useState<number>(0)
+    const [currentYear, setCurrentYear] = useState<number>(0)
+    
     useEffect(() => {
         const lifeTime = new LifeTime()
         setDayOfYear(lifeTime.getDayOfYear())
         setCurrentDayOfYear(lifeTime.getCurrentDayOfYear())
+        setCurrentYear(lifeTime.getCurrentYear())
     }, [])
 
     function renderTimeBlock() {
@@ -28,8 +31,8 @@ const About: React.FC = () => {
     return (
         <div className="container">
             <article className=" life-time panel is-primary">
-                <h3 className="title">今年共有{dayOfYear}天</h3>
-                <p className="subtitle">已经使用{currentDayOfYear}天</p>
+                <h3 className="title">{currentYear}年共有{dayOfYear}天</h3>
+                <p className="subtitle">已经过了<b>{currentDayOfYear}</b>天, 剩余<b>{dayOfYear - currentDayOfYear}</b>天</p>
                 <div className="time-block flex">
                     {renderTimeBlock()}
                 </div>
@@ -38,4 +41,4 @@ const About: React.FC = () => {
     )
 }
 
-export default About
+export default LifeTiView

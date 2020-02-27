@@ -13,8 +13,7 @@
         background-color: rgb(235, 237, 240);
 
         &.cureent {
-            // background-color: #e34c26;
-            animation: flicker 1s infinite linear forwards;
+            animation: flicker .8s infinite linear forwards;
             animation-direction: alternate;
         }
 
