@@ -6,6 +6,7 @@ import Qrcode from './Views/Qrcode'
 import JSONView from './Views/JSON'
 import System from './Views/System'
 import LifeTime from './Views/LifeTime'
+import ShuttleBox from './Views/ShuttleBox'
 
 const App: React.FC = () => {
   return (
@@ -19,6 +20,7 @@ const App: React.FC = () => {
             <Route exact path="/json" component={JSONView} />
             <Route exact path="/system" component={System} />
             <Route exact path="/lifeTime" component={LifeTime} />
+            <Route exact path="/shuttle" component={ShuttleBox} />
           </Switch>
         </Router>
       </div>
