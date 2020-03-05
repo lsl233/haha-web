@@ -33,17 +33,12 @@ class Shuttle {
         this.options = Object.assign({
             change() { }
         }, options)
-        this.list = list
+        this.list = list.map((item, index) => {
+            item.idx = index
+            return item
+        })
         this.checkedList = checkedList
         this.options.change(this.list, this.checkedList)
-    }
-
-    get newList() {
-        return [...this.list]
-    }
-
-    get newCheckedList() {
-        return [...this.checkedList]
     }
 
     get checkedListWithId() {
@@ -62,20 +57,17 @@ class Shuttle {
     check(idx) {
         const item = this.list[idx]
         this.list.splice(idx, 1)
-        item.beforeIdx = idx
         this.checkedList.push(item)
-        this.options.change(this.newList, this.newCheckedList)
+        this.options.change([...this.list], [...this.checkedList])
     }
 
     uncheck(idx) {
         const item = this.checkedList[idx]
         this.checkedList.splice(idx, 1)
-        if (item.beforeIdx >= 0) {
-            this.list.splice(item.beforeIdx, 0, item)
-        } else {
-            this.list.push(item)
-        }
-        this.options.change(this.newList, this.newCheckedList)
+        let startIdx = item.idx
+        this.list.push(item)
+        this.list.splice(item.idx, 0, item)
+        this.options.change([...this.list], [...this.checkedList])
     }
 }
 

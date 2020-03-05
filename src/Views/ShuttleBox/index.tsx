@@ -45,7 +45,6 @@ const System: React.FC = () => {
         }
     }, [])
 
-    console.log('render')
     return (
         <div className="container shuttle-box">
             <div className="columns">

@@ -162,7 +162,7 @@ const Virus: React.FC = () => {
         const pointLayer = new PointLayer({})
             .source(data)
             .shape('circle')
-            .size('capacity', [10, 20])
+            .size('capacity', [1, 10])
             .color('capacity', [
                 '#34B6B7',
                 '#4AC5AF',
