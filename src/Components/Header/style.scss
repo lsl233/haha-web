@@ -1,0 +1,14 @@
+.header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+
+  .navbar-menu.show {
+    display: block;
+  }
+
+  .navbar-menu.hide {
+    display: none;
+  }
+}

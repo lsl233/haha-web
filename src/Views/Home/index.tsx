@@ -25,13 +25,13 @@ const Home: React.FC = () => {
         {
             name: '人生时间',
             des: '仿Github风格展示今年已经过去的时间',
-            image: '/images/system.png',
+            image: '/images/time.png',
             url: '/lifeTime'
         },
         {
             name: '穿梭框',
-            des: '穿梭框',
-            image: '/images/system.png',
+            des: '个人开发穿梭框组件，尝试与UI解耦',
+            image: '/images/transfer.png',
             url: '/transfer'
         }
     ]

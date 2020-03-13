@@ -12,7 +12,7 @@ const App: React.FC = () => {
   return (
     <div>
       <Header />
-      <div className="section">
+      <div className="section" style={{paddingTop: '4.75rem'}}>
         <Router>
           <Switch>
             <Route exact path="/" component={Home} />
