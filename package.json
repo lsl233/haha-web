@@ -27,8 +27,8 @@
     "typescript": "~3.7.2"
   },
   "scripts": {
-    "dev": "react-scripts start",
-    "build": "react-scripts build",
+    "dev": "react-scripts start --isolatedModules",
+    "build": "react-scripts build --isolatedModules",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

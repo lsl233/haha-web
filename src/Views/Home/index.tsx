@@ -27,6 +27,12 @@ const Home: React.FC = () => {
             des: '仿Github风格展示今年已经过去的时间',
             image: '/images/system.png',
             url: '/lifeTime'
+        },
+        {
+            name: '穿梭框',
+            des: '穿梭框',
+            image: '/images/system.png',
+            url: '/transfer'
         }
     ]
 
