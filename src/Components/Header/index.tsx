@@ -1,11 +1,18 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import {Link, HashRouter as Router} from 'react-router-dom'
 import './style.scss'
 
 const Header: React.FC = () => {
     const [isShow, setIsShow] = useState<boolean>(false)
 
-    const handleSwitchShowNavBar = () => {
+    useEffect(() => {
+        document.body.onclick = function () {
+            setIsShow(false)
+        }
+    })
+
+    const handleSwitchShowNavBar = (e: React.MouseEvent) => {
+        e.stopPropagation()
         setIsShow(!isShow)
     }
 
