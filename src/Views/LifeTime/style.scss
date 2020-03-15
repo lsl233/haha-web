@@ -14,7 +14,7 @@
     height: 12px;
     background-color: rgb(235, 237, 240);
 
-    &.cureent {
+    &.current {
       animation: flicker .8s infinite ease-out forwards;
       animation-direction: alternate;
     }

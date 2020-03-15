@@ -20,7 +20,7 @@ const LifeTiView: React.FC = () => {
             if (i < currentDayOfYear) {
                 arr.push(<div key={i} className="history" />)
             } else if (i === currentDayOfYear) {
-                arr.push(<div key={i} className="cureent" />)
+                arr.push(<div key={i} className="current" />)
             } else {
                 arr.push(<div key={i} />)
             }
