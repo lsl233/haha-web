@@ -1,29 +1,42 @@
 .life-time {
-    padding: 16px 8px;
+  padding: 16px 8px;
+  overflow: hidden;
 }
+
 .time-block {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    // margin: 0 auto;
-    & > div {
-        margin: 2.5px;
-        width: 12px;
-        height: 12px;
-        background-color: rgb(235, 237, 240);
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 12px);
+  grid-gap: 4px;
+  justify-content: center;
 
-        &.cureent {
-            animation: flicker .8s infinite linear forwards;
-            animation-direction: alternate;
-        }
+  & > div {
+    width: 12px;
+    height: 12px;
+    background-color: rgb(235, 237, 240);
 
-        &.history {
-            background-color: rgb(123, 201, 111);
-        }
+    &.cureent {
+      animation: flicker .8s infinite ease-out forwards;
+      animation-direction: alternate;
     }
+
+    &.history {
+      background-color: rgb(123, 201, 111);
+      transition: transform .2s ease-out;
+
+      &:hover {
+        transform: scale(1.4);
+      }
+    }
+  }
 }
 
 @keyframes flicker {
-    0% { background-color: rgb(123, 201, 111); transform: scale(1)}
-    100% { background-color: #e34c26; transform: scale(1.2) }
+  0% {
+    background-color: #7BC96F;
+    transform: scale(1);
+  }
+  100% {
+    background-color: #e34c26;
+    transform: scale(1.4);
+  }
 }

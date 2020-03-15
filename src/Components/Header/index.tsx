@@ -6,10 +6,11 @@ const Header: React.FC = () => {
     const [isShow, setIsShow] = useState<boolean>(false)
 
     useEffect(() => {
+        console.log(111)
         document.body.onclick = function () {
             setIsShow(false)
         }
-    })
+    }, [])
 
     const handleSwitchShowNavBar = (e: React.MouseEvent) => {
         e.stopPropagation()
@@ -31,7 +32,7 @@ const Header: React.FC = () => {
                     </div>
                 </div>
 
-                <div className={`navbar-menu ${isShow ? 'show' : 'hide'}`}>
+                <div className={`navbar-menu ${isShow ? 'is-active' : ''}`}>
                     <div className="navbar-start">
                         <Link to="/" className="navbar-item">首页</Link>
                         <Link to="/qrcode" className="navbar-item">二维码生成</Link>

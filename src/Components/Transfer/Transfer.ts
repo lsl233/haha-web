@@ -78,11 +78,7 @@ class Transfer {
 
     filter(list: ITransferListItem[], keyword: string) {
         return list.map(item => {
-            if (item.name.toLowerCase().indexOf(keyword.toLowerCase()) > -1) {
-                item.show = true
-            } else {
-                item.show = false
-            }
+            item.show = item.name.toLowerCase().indexOf(keyword.toLowerCase()) > -1;
             return item
         })
     }
