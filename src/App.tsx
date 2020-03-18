@@ -7,6 +7,7 @@ import JSONView from './Views/JSON'
 import System from './Views/System'
 import LifeTime from './Views/LifeTime'
 import Transfer from './Views/Transfer'
+import ChatRoom from './Views/ChatRoom'
 
 const App: React.FC = () => {
   return (
@@ -21,6 +22,7 @@ const App: React.FC = () => {
             <Route exact path="/system" component={System} />
             <Route exact path="/lifeTime" component={LifeTime} />
             <Route exact path="/transfer" component={Transfer} />
+            <Route exact path="/chatRoom" component={ChatRoom} />
           </Switch>
         </Router>
       </div>
