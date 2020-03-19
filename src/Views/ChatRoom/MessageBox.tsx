@@ -6,9 +6,9 @@ const MessageBox: React.FC = () => {
     const [messages] = useMessages()
     console.log(messages)
     return (
-        <div>
+        <div className="messages">
             {
-                messages.map(message => <div key={message}>{message}</div>)
+                messages.map(message => <div key={message}><span className="content">{message}</span></div>)
             }
         </div>
     )

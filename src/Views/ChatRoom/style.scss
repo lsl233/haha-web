@@ -1,2 +1,26 @@
-.bottom {
+
+.messages {
+    display: flex;
+    flex-direction: column;
+
+    & > div {
+        margin-bottom: .5rem;
+        &:first-child {
+            margin-top: .5rem;
+        }
+
+        &.self {
+            align-self: flex-end;
+            background-color: #279ae6;
+            color: #fff;
+        }
+
+        .content {
+            padding: 0.5rem 0.75rem;
+            display: inline-block;
+            border-radius: .25rem;
+            background-color: #dddddd;
+            word-break: break-all;
+        }
+    }
 }
