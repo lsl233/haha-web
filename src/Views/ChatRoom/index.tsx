@@ -1,11 +1,18 @@
 import React from 'react'
-import socket from './initSocket'
+import Control from './Control'
+import MessageBox from './MessageBox'
+import './style.scss'
 
 const ChatRoom: React.FC = () => {
-  console.log(socket)
-  return (
-    <div>chat room</div>
-  )
+
+    return (
+        <div className="columns is-mobile">
+            <div className="column is-half is-offset-one-quarter">
+                <MessageBox />
+                <Control />
+            </div>
+        </div>
+    )
 }
 
 export default ChatRoom
