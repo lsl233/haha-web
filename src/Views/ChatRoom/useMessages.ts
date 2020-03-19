@@ -1,40 +1,30 @@
-import { Dispatch, SetStateAction, useEffect, useReducer, useState } from 'react'
+import React, { Dispatch, SetStateAction, useEffect, useReducer, useState } from 'react'
 import socket from './initSocket'
 
-type State = {
-    messages: string[]
-}
+const state: string[] = []
+const actions: React.Dispatch<React.SetStateAction<string[]>>[] = []
 
-type Action = {
-    type: 'addMessage'
-    payload: string
-}
-
-const initialState: State  = {
-    messages: []
-}
-
-function reducer(state: State, action: Action): State {
-    switch (action.type) {
-        case 'addMessage':
-            return { messages: [...state.messages, action.payload] }
+function addMessage(message: string) {
+    state.push(message)
+    socket.emit('message', message)
+    for (const action of actions) {
+        action([...state])
     }
 }
 
+let emitter: SocketIOClient.Emitter
+
 export default function useMessages (): [string[], (message: string) => void] {
-    const [state, dispatch] = useReducer(reducer, initialState)
+    const [ messages, setMessage ] = useState<string[]>(state)
 
     useEffect(() => {
-        socket.on('message', (message: string) => {
-            dispatch({ type: 'addMessage', payload: message })
+        actions.push(setMessage)
+        if (emitter) return
+        emitter = socket.on('message', (message: string) => {
+            state.push(message)
+            setMessage([...state])
         })
     }, [])
 
-    function addMessage(message: string) {
-        debugger
-        dispatch({ type: 'addMessage', payload: message })
-        socket.emit('message', message)
-    }
-
-    return [state.messages, addMessage]
+    return [messages, addMessage]
 }
