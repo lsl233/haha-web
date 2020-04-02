@@ -1,15 +1,15 @@
 class LifeTime {
     private date: Date
-    private currentYear: number
-    private dayOfYear: number
-    private currentDayOfYear: number
+    private readonly currentYear: number
+    private readonly dayOfYear: number
+    private readonly currentDayOfYear: number
     
     constructor() {
         this.date = new Date()
         this.currentYear = this.date.getFullYear()
         this.dayOfYear = LifeTime.isCommonYear(this.currentYear) ? 366 : 365
-        const temesMap = new Date().getTime() - new Date(this.currentYear.toString()).getTime()
-        this.currentDayOfYear = Math.ceil(temesMap / 86400000) + 1
+        const timeMap = new Date().getTime() - new Date(this.currentYear.toString()).getTime()
+        this.currentDayOfYear = Math.ceil(timeMap / 86400000) + 1
     }
     getDayOfYear(): number {
         return this.dayOfYear
@@ -26,5 +26,4 @@ class LifeTime {
     }
 }
 
-// factory
 export default LifeTime

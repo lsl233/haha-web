@@ -25,7 +25,6 @@ const System: React.FC = () => {
                     <Transfer list={data} onChange={handleChange} />
                 </div>
             </div>
-
         </div>
     )
 }

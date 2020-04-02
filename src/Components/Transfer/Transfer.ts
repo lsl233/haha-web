@@ -1,31 +1,4 @@
-// class Status {
-//     statusCode: number
-//     constructor(initStatusCode = 0) {
-//         this.statusCode = initStatusCode
-//     }
-//     get code() {
-//         return this.statusCode
-//     }
-//     get none() {
-//         return this.statusCode === 0
-//     }
-//     get pendding() {
-//         return this.statusCode === 1
-//     }
-//     get success() {
-//         return this.statusCode === 2
-//     }
-//     get fail() {
-//         return this.statusCode === 3
-//     }
-//     get done() {
-//         return this.success || this.fail
-//     }
 
-//     update(status: number) {
-//         this.statusCode = status
-//     }
-// }
 export interface ListItem {
     [key: string]: any
 }

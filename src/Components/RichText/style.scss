@@ -1,0 +1,7 @@
+.textarea:not([rows]),
+.textarea {
+  overflow: auto;
+  padding: .3rem .6rem;
+  min-height: auto;
+  height: 100%;
+}

@@ -6,7 +6,7 @@ import './style.scss'
 const ChatRoom: React.FC = () => {
 
     return (
-        <div className="columns is-mobile">
+        <div className="chat-room columns is-mobile">
             <div className="column is-half is-offset-one-quarter">
                 <MessageBox />
                 <Control />
