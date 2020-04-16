@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from 'react'
-import {Link, HashRouter as Router} from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { Link, HashRouter as Router } from 'react-router-dom'
 import './style.scss'
 
 const Header: React.FC = () => {
@@ -22,13 +22,13 @@ const Header: React.FC = () => {
             <nav className="navbar has-shadow header">
                 <div className="navbar-brand">
                     <Link to="/" className="navbar-item">
-                        <img src="/images/logo.png" alt="logo"/>
+                        <img src="/images/logo.png" alt="logo" />
                     </Link>
 
                     <div onClick={handleSwitchShowNavBar} className="navbar-burger">
-                        <span></span>
-                        <span></span>
-                        <span></span>
+                        <span />
+                        <span />
+                        <span />
                     </div>
                 </div>
 

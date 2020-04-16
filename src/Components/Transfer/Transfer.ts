@@ -1,7 +1,7 @@
-
 export interface ListItem {
     [key: string]: any
 }
+
 export interface ITransferListItem extends ListItem {
     idx: number
     show: boolean
@@ -9,6 +9,7 @@ export interface ITransferListItem extends ListItem {
 
 export interface IOptions {
     change(list: ITransferListItem[], checkedList: ITransferListItem[]): void
+
     keyOfId?: string,
     keyOfName?: string
 }
@@ -22,7 +23,7 @@ class Transfer {
         list: ListItem[],
         checkedList: ITransferListItem[],
         options: IOptions
-        ) {
+    ) {
         this.options = options
         this.list = Transfer.list2ByIdx(list)
         this.checkedList = checkedList
@@ -51,7 +52,7 @@ class Transfer {
 
     filter(list: ITransferListItem[], keyword: string) {
         return list.map(item => {
-            item.show = item.name.toLowerCase().indexOf(keyword.toLowerCase()) > -1;
+            item.show = item.name.toLowerCase().indexOf(keyword.toLowerCase()) > -1
             return item
         })
     }
@@ -86,7 +87,7 @@ class Transfer {
 
     getPosition(idx: number) {
         if (idx === 0) return idx
-        const length  = this.list.length
+        const length = this.list.length
         for (let i = 0; i < length; i++) {
             const item = this.list[i]
             if (item.idx && item.idx > idx) {

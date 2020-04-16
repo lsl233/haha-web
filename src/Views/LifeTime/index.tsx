@@ -6,12 +6,12 @@ const LifeTiView: React.FC = () => {
     const [dayOfYear, setDayOfYear] = useState<number>(0)
     const [currentDayOfYear, setCurrentDayOfYear] = useState<number>(0)
     const [currentYear, setCurrentYear] = useState<number>(0)
-    
+
     useEffect(() => {
         const lifeTime = new LifeTime()
-        setDayOfYear(lifeTime.getDayOfYear())
-        setCurrentDayOfYear(lifeTime.getCurrentDayOfYear())
-        setCurrentYear(lifeTime.getCurrentYear())
+        setDayOfYear(lifeTime.dayOfYear)
+        setCurrentDayOfYear(lifeTime.currentDayOfYear)
+        setCurrentYear(lifeTime.currentYear)
     }, [])
 
     function renderTimeBlock() {

@@ -42,7 +42,7 @@ const TransferBox: React.FC<IProps> = (props) => {
                         <p className="control has-icons-left">
                             <input onChange={handleInputChange} value={leftKeyword} className="input is-small" type="text" placeholder="Search" />
                             <span className="icon is-left">
-                                <i className="fas fa-search" aria-hidden="true"></i>
+                                <i className="fas fa-search" aria-hidden="true"/>
                             </span>
                         </p>
                     </div>
@@ -64,7 +64,7 @@ const TransferBox: React.FC<IProps> = (props) => {
                         <p className="control has-icons-left">
                             <input className="input is-small" type="text" placeholder="Search" />
                             <span className="icon is-left">
-                                <i className="fas fa-search" aria-hidden="true"></i>
+                                <i className="fas fa-search" aria-hidden="true"/>
                             </span>
                         </p>
                     </div>
