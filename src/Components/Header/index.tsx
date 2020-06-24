@@ -6,7 +6,6 @@ const Header: React.FC = () => {
     const [isShow, setIsShow] = useState<boolean>(false)
 
     useEffect(() => {
-        console.log(111)
         document.body.onclick = function () {
             setIsShow(false)
         }
